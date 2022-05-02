@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenido</title>
+
+</head>
+<body>
+
+<h1>sistema de administracion de ejemplo (En Django)</h1>
+<a href="{% url 'inicio de sesion' %}">Iniciar sesion</a>
+
+<div>
+    El numero de personas es: {{no_personas}}
+
+</div>
+
+<div>
+    <a href="nueva_persona">Agregar persona</a>
+</div>
+<div>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for persona in personas %}
+        <tr>
+            <td>{{persona.id}}</td>
+            <td>{{persona.nombre}} {{persona.apellido}}</td>
+            <td>{{persona.email}}</td>
+            <td><a href="detalle_persona/{{persona.id}}">Ver detalle</a></td>
+            <td><a href="editar_persona/{{persona.id}}">Editar</a></td>
+            <td><a href="eliminar_persona/{{persona.id}}">Eliminar</a></td>
+
+
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+</div>
+
+
+</body>
+</html>
